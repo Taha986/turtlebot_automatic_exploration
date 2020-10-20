@@ -218,8 +218,8 @@ void BrickSearch::imageCallback(const sensor_msgs::ImageConstPtr& image_msg_ptr)
 
   // SET COLOUR BOUNDARIES
   //Need to change boundaries for better recognition try only looking for red and adding light to the gazebo environment
-  cv::Scalar min(0, 200, 100);
-  cv::Scalar max(20/2, 255, 255);
+  cv::Scalar min(0, 120, 70);
+  cv::Scalar max(10, 255, 255);
 
   // SET DETECTED IMAGE TO WHITE THE REST BLACK
   cv::Mat threshold_mat;
@@ -246,7 +246,7 @@ void BrickSearch::imageCallback(const sensor_msgs::ImageConstPtr& image_msg_ptr)
 
   
   // ONLY SAVE LARGE BLOB AS THE BRICK. SEND brick_found_ = 1
-  ROS_INFO_STREAM("r : " << r );
+  ROS_INFO_STREAM(" #####################r : " << r );
   if (r > 50) {
 
     brick_found_ = 1;
